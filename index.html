@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sticky Notepad</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="toolbar">
+    <span class="app-title">✏️ Sticky Notepad</span>
+    <button class="add-btn" id="addNote" title="Add a new note">+ New Note</button>
+  </div>
+  <div class="board" id="board"></div>
+
+  <template id="note-template">
+    <div class="note">
+      <div class="note-header">
+        <div class="color-dots">
+          <span class="dot dot-pink" data-color="pink"></span>
+          <span class="dot dot-yellow" data-color="yellow"></span>
+          <span class="dot dot-mint" data-color="mint"></span>
+          <span class="dot dot-lavender" data-color="lavender"></span>
+          <span class="dot dot-peach" data-color="peach"></span>
+        </div>
+        <button class="delete-btn" title="Delete note">✕</button>
+      </div>
+      <textarea class="note-text" placeholder="Write something cute here... 🌸"></textarea>
+      <div class="note-footer">
+        <span class="note-date"></span>
+        <span class="note-drag-hint">drag ✦</span>
+      </div>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
