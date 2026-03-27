@@ -3,32 +3,54 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sticky Notepad</title>
+  <title>🌸 Cute Sticky Notes</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
   <div class="toolbar">
-    <span class="app-title">✏️ Sticky Notepad</span>
-    <button class="add-btn" id="addNote" title="Add a new note">+ New Note</button>
+    <div class="toolbar-left">
+      <span class="app-title">🌸 Sticky Notes</span>
+      <span class="note-counter" id="noteCounter">0 notes</span>
+    </div>
+    <div class="toolbar-right">
+      <button class="tool-btn" id="gridToggle" title="Snap to grid">⊞ Snap</button>
+      <button class="tool-btn" id="tidyBtn"    title="Arrange notes neatly">✦ Tidy</button>
+      <button class="tool-btn danger" id="clearBtn" title="Remove all notes">🗑 Clear</button>
+      <button class="add-btn" id="addNote">＋ New Note</button>
+    </div>
   </div>
+
   <div class="board" id="board"></div>
 
-  <template id="note-template">
+  <template id="note-tpl">
     <div class="note">
+      <!-- tape strip -->
+      <div class="note-tape"></div>
+      <!-- animated cartoon characters on edges (filled by JS per theme) -->
+      <span class="char char-tl"></span>
+      <span class="char char-tr"></span>
+      <span class="char char-bl"></span>
+      <span class="char char-br"></span>
+      <span class="char char-mid"></span>
+      <!-- note content -->
       <div class="note-header">
-        <div class="color-dots">
-          <span class="dot dot-pink" data-color="pink"></span>
-          <span class="dot dot-yellow" data-color="yellow"></span>
-          <span class="dot dot-mint" data-color="mint"></span>
-          <span class="dot dot-lavender" data-color="lavender"></span>
-          <span class="dot dot-peach" data-color="peach"></span>
+        <button class="pin-btn" title="Pin / unpin note">📌</button>
+        <div class="color-row">
+          <span class="dot" data-color="pink"     style="background:#ffb3c6"></span>
+          <span class="dot" data-color="yellow"   style="background:#ffe066"></span>
+          <span class="dot" data-color="mint"     style="background:#7de8a2"></span>
+          <span class="dot" data-color="lavender" style="background:#c4a8f5"></span>
+          <span class="dot" data-color="peach"    style="background:#ffaa7a"></span>
+          <span class="dot" data-color="sky"      style="background:#7ecef4"></span>
         </div>
         <button class="delete-btn" title="Delete note">✕</button>
       </div>
-      <textarea class="note-text" placeholder="Write something cute here... 🌸"></textarea>
+      <input  class="note-title" type="text"  placeholder="Title…" maxlength="50" />
+      <textarea class="note-text" placeholder="Write something here ✨" rows="5"></textarea>
       <div class="note-footer">
         <span class="note-date"></span>
-        <span class="note-drag-hint">drag ✦</span>
+        <span class="note-words">0 words</span>
       </div>
     </div>
   </template>
